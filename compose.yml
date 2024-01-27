@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  backend:
+    image: hdcv/docker-minichallenge-backend:latest
+    expose:
+      - 8080
+    env_file:
+      - .env
+
+  frontend:
+    build:
+      context: ./frontend
+    env_file:
+      - .env
+    depends_on:
+      - backend
